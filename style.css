@@ -1,0 +1,25 @@
+th{
+    background-color: lightblue;
+}
+.summen{
+    margin-top: 50px;
+    background-color: orangered;
+    padding: 0px;
+}
+input{
+    background-color: aliceblue;
+    border: none;
+}
+div.uberschrift{
+    margin-left: auto;
+    margin-right: auto;
+    width: 15cm;
+    background-color: aqua;
+    text-align: center;
+    font-size: 70px;
+    border-radius: 20px;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
