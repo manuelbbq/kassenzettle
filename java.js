@@ -14,6 +14,7 @@ class Artikel{
     }
     betrag(){
         let bet = this.anzahl * this.einzelpreis;
+        bet = parseFloat(bet.toFixed(2));
         return bet
     }
     html_string(zeile){
@@ -76,7 +77,7 @@ function betrag_summe(){
     for (let x of artikel_arry) {
         summe += x.betrag()
     }
-    return summe.toFixed(2)
+    return summe
 }
 function mwst7_summe(){
     let summe = 0;
@@ -101,6 +102,7 @@ function mwst19_summe(){
 }
 
 function make_table(){
+
     let kopfzeile = '';
         kopfzeile += '<tr>';
             kopfzeile += '<th>Artikel</th>';
@@ -173,12 +175,31 @@ function change_arry(){
     make_table()
 }
 
-function test(){
-    let element = event.currentTarget.childNodes[1];
-    let child = element.childNodes[0].value;
-    console.log(child)
-}
+function kopfzeile(){
+    let t_uberschriften = ['Artikel','Anzahl','Einzelpreis','MwSt in %', 'Betrag'];
+    let element = document.getElementsByTagName('div')[0];
 
+    // create table
+    const tab = document.createElement('table');
+    const att = document.createAttribute('id');
+    att.value = "zettel";
+    tab.setAttributeNode(att);
+    element.insertAdjacentElement('afterend', tab);
+    // create tr element
+    let tabtest = document.getElementById('zettelt');
+    const add_tr = document.createElement('tr');
+    tabtest.appendChild(add_tr)
+
+
+    // create th element
+    for (let x of t_uberschriften) {
+        let tr_ele = tabtest.lastChild;
+        let th_ele = document.createElement('th');
+        th_ele.innerText = x;
+        tr_ele.appendChild(th_ele);
+    }
+    console.log(element)
+}
 
 
 
